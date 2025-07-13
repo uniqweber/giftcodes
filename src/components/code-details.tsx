@@ -58,7 +58,7 @@ export default function CodeDetails({amount, description, verifiedDaysAgo, usesT
             <div className="flex items-center justify-between  p-4">
                 {/* LEFT */}
                 <div className="flex items-center gap-5 w-full max-w-[70%]">
-                    <div className="flex flex-col items-center justify-center bg-red-50 border border-red-100 text-red-600 rounded-md w-24  py-2 shrink-0">
+                    <div className="flex flex-col items-center justify-center bg-red-50 border border-red-100 text-red-600 rounded-md min-w-26 px-3  py-2 shrink-0">
                         <span className="text-2xl text-center">{amount}</span>
                         <span className="text-sm font-semibold">Robux</span>
                     </div>
