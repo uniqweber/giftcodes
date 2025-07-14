@@ -2,24 +2,23 @@ import RobloxCodeCard from "@/components/code-details";
 import Image from "next/image";
 import {BiStar} from "react-icons/bi";
 import {couponsData} from "@/data/coupons";
+import { PageProps } from "../../../.next/types/app/[coupon]/page";
 
-// Static params generate করুন
+
+
 export async function generateStaticParams() {
     return couponsData.map((coupon) => ({
         coupon: coupon.slug,
     }));
 }
 
-export default function CouponDetails({params}) {
-    const {coupon} = params;
+export default async function CouponDetails({params}:PageProps) {
+    const {coupon} = await params;
     const couponData = couponsData.find((item) => item.slug === coupon);
-
     if (!couponData) {
         return <div>Coupon not found</div>;
     }
-
-    // Star rating render করার function
-    const renderStars = (rating) => {
+    const renderStars = (rating: number) => {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
             stars.push(<BiStar key={i} className={`w-5 h-5 ${i <= rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-300 text-gray-300"}`} />);
@@ -37,7 +36,7 @@ export default function CouponDetails({params}) {
                             src={couponData.image}
                             width={800}
                             height={400}
-                            alt={couponData.title}
+                            alt={couponData.slug}
                             className="rounded-lg object-cover object-center w-full"
                         />
                     </div>

@@ -66,7 +66,7 @@ export default function CouponCarousel() {
                                     <div className="relative h-48">
                                         <Image
                                             src={coupon.image}
-                                            alt={coupon.title}
+                                            alt={coupon.slug}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 200px"
                                             style={{objectFit: "cover"}}

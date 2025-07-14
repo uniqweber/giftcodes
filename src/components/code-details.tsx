@@ -58,18 +58,17 @@ export default function CodeDetails({amount, description, verifiedDaysAgo, usesT
             <div className="flex items-center justify-between  p-4">
                 {/* LEFT */}
                 <div className="flex items-center gap-5 w-full max-w-[70%]">
-                    <div className="flex flex-col items-center justify-center bg-red-50 border border-red-100 text-red-600 rounded-md min-w-26 px-3  py-2 shrink-0">
-                        <span className="text-2xl text-center">{amount}</span>
-                        <span className="text-sm font-semibold">Robux</span>
+                    <div className="flex flex-col items-center justify-center bg-red-50 border border-red-100 text-red-600 rounded-md w-28 px-1 text-center font-semibold  py-2 shrink-0">
+                        <span className="text-xl text-center">{amount}</span>
                     </div>
 
                     <div className="flex flex-col gap-1 overflow-hidden">
                         <h3 className="text-base font-medium text-gray-900 line-clamp-1">{description}</h3>
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                             <LuTriangleAlert className="w-4 h-4 text-green-500" />
-                            <span>Verified {verifiedDaysAgo} Day Ago</span>
+                            <span className="truncate">Verified {verifiedDaysAgo} Day Ago</span>
                             <span>|</span>
-                            <span>{usesToday}k uses today</span>
+                            <span className="truncate">{usesToday}k uses today</span>
                         </div>
                     </div>
                 </div>
