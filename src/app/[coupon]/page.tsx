@@ -6,11 +6,11 @@ import { PageProps } from "../../../.next/types/app/[coupon]/page";
 
 
 
-export async function generateStaticParams() {
-    return couponsData.map((coupon) => ({
-        coupon: coupon.slug,
-    }));
-}
+// export async function generateStaticParams() {
+//     return couponsData.map((coupon) => ({
+//         coupon: coupon.slug,
+//     }));
+// }
 
 export default async function CouponDetails({params}:PageProps) {
     const {coupon} = await params;
