@@ -11,9 +11,10 @@ interface RobloxCodeCardProps {
     verifiedDaysAgo: string;
     usesToday: string;
     code: string;
+    visible?: number;
 }
 
-export default function CodeDetails({amount, description, verifiedDaysAgo, usesToday, code}: RobloxCodeCardProps) {
+export default function CodeDetails({amount, description, verifiedDaysAgo, usesToday, code, visible}: RobloxCodeCardProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [showToast, setShowToast] = useState(false);
     const [isCodeRevealed, setIsCodeRevealed] = useState(false);
@@ -97,6 +98,7 @@ export default function CodeDetails({amount, description, verifiedDaysAgo, usesT
                         isLoading={isLoading}
                         isCodeRevealed={isCodeRevealed}
                         onUnlockCode={handleUnlockCode}
+                        maskVisibleChars={visible}
                     />
                 )}
             </AnimatePresence>

@@ -52,6 +52,7 @@ export default async function CouponDetails({params}:PageProps) {
                                 verifiedDaysAgo={codeItem.verifiedDaysAgo}
                                 usesToday={codeItem.usesToday}
                                 code={codeItem.code}
+                                visible={couponData.visible}
                             />
                         ))}
                     </div>

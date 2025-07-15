@@ -15,6 +15,7 @@ interface RobloxCodeModalProps {
     isLoading: boolean;
     isCodeRevealed: boolean;
     onUnlockCode: () => void;
+    maskVisibleChars?: number;
 }
 
 export default function CouponModal({
@@ -27,6 +28,7 @@ export default function CouponModal({
     isLoading,
     isCodeRevealed,
     onUnlockCode,
+    maskVisibleChars = 5,
 }: RobloxCodeModalProps) {
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +40,7 @@ export default function CouponModal({
         return () => document.removeEventListener("keydown", handleEscape);
     }, [isOpen, onClose]);
 
-    const maskedCode = code.substring(0, 5) + "********";
+    const maskedCode = code.substring(0, maskVisibleChars) + "*".repeat(Math.max(0, code.length - maskVisibleChars));
 
     // We always render modal, but animate visibility based on isOpen
     return (
@@ -65,7 +67,7 @@ export default function CouponModal({
                     <CgClose className="h-5 w-5" />
                 </button>
 
-                <h2 className="text-2xl font-bold text-center mb-1">{amount} Robux</h2>
+                <h2 className="text-2xl font-bold text-center mb-1">{amount}</h2>
                 <p className="text-lg font-bold text-center text-gray-800 mb-6">{description}</p>
 
                 <div className="bg-red-100 border border-dashed border-red-300 text-red-700 px-4 py-3 rounded-md mb-4 text-center font-semibold text-lg">
